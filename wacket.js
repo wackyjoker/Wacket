@@ -7,4 +7,11 @@ const element = {
 }
 
 const container = document.getElementById("root");
-ReactDOM.render(element,container);
+const node = document.createElement(element.type);
+      node["title"]=element.props.title;
+const text = document.createTextNode("something");
+
+text["NodeValue"] = element.props.children;
+
+node.appendChild(text);
+container.appendChild(node);
