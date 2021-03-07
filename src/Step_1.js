@@ -22,12 +22,15 @@ function createTextElement(text) {
     }
 }
 
+const Wacket = {
+    createElement
+}
 
-const element = React.createElement(
+const element = Wacket.createElement(
     "div",
     {id: "foo"},
-    React.createElement("a", null, "bar"),
-    React.createElement("b")
+    Wacket.createElement("a", null, "bar"),
+    Wacket.createElement("b")
 )
 const container = document.getElementById("root")
 ReactDOM.render(element, container)
