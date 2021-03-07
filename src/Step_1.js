@@ -32,7 +32,7 @@ const Wacket = {
 //     Wacket.createElement("a", null, "bar"),
 //     Wacket.createElement("b")
 // )
-/** @jsx Didact.createElement */
+/** @jsx Wacket.createElement */
 const element = (
     <div id="foo">
         <a>bar</a>

@@ -1,29 +1,28 @@
-function returnObj(children, keys, ...arguments) {
-    console.log(keys);
+function createElement(type, props, ...children) {
     return {
-        all: {
-            ...children,
-            arguments
-        },
-        second: keys.map(child =>
-            typeof child === "object"
-                ? child
-                : createTextElement(child)
-        )
+        type,
+        props: {
+            ...props,
+            children:children.map(child =>
+                typeof child === "object"
+                    ? child
+                    : createTextElement(child)
+            )
+        }
     }
 }
 function createTextElement(text) {
-    const retVal={
+    return {
         type: "TEXT_ELEMENT",
         props: {
             nodeValue: text,
             children: [],
         },
-    }
-    console.log("this is a child",retVal)
-    return retVal;
+    };
 }
+const Wacket = {
+    createElement
+}
+const Element = Wacket.createElement("h1", ["0x01", "0x02", "0x03"], "Modafaka","and foo");
 
-const props = returnObj(["Foo", "Bar", "Foobar"], ["0x01", "0x02", "0x03"], 1, 2, 3, 4);
-
-console.log(props);
+console.log(Element.props.children);
